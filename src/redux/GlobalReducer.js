@@ -1,7 +1,8 @@
 import ActionType from "./GlobalActionType"
 
 const globalState = { 
-    globalNumber : []
+    globalNumber : [],
+    isLoggedIn: false
   }
   
   const rootReducer = (state = globalState, action) => {
@@ -20,6 +21,18 @@ const globalState = {
       return {
         ...state,
         globalNumber: [...globalNumber2]
+      }
+    }
+    if(action.type === ActionType.LOGIN){
+      return {
+        ...state,
+        isLoggedIn: true
+      }
+    }
+    if(action.type === ActionType.LOGOUT){
+      return {
+        ...state,
+        isLoggedIn: false
       }
     }
     return state

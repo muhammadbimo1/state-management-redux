@@ -52,9 +52,8 @@ class FirstCounter extends Component {
                                     <tr key={index}>
                                         <th scope="row">{index+1}</th>
                                         <th scope="row">{item.text}</th>
-                                        <button name={index} onClick={this.handleClickDelete}>asd</button>
+                                        <button name={index} onClick={this.handleClickDelete}>DELETE</button>
                                     </tr>
-
                                 )
                                     ;
                             })}
@@ -63,7 +62,7 @@ class FirstCounter extends Component {
                 </div>
 
                 <button onClick={this.handleClick}>+</button>
-                <button onClick={this.props.handleMinus}>-</button>
+                <button onClick={this.props.handleLogout}>LOGOUT</button>
             </>
         )
     }
@@ -82,6 +81,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({ type: ActionType.PLUS, payload: text })
         },
         handleDelete: (index) => dispatch({ type: ActionType.MINUS, index: index }),
+        handleLogout: () => dispatch({ type: ActionType.LOGOUT})
     }
 }
 
