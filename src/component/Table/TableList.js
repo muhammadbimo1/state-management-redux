@@ -53,7 +53,7 @@ class TableList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tables: state.tables,
+        tables: state.tables
     }
 } //Map State to props. Get GlobalNumber directly from Index.js 
 

@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import ActionType from "../../redux/GlobalActionType";
-
 class MenuForm extends Component {
     constructor(props) {
         super(props)
@@ -64,10 +63,8 @@ class MenuForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        number: state.globalNumber
-    }
-} //Map State to props. Get GlobalNumber directly from Index.js 
+
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {

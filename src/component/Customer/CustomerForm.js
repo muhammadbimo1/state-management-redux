@@ -75,10 +75,8 @@ class CustomerForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        number: state.globalNumber
-    }
-} //Map State to props. Get GlobalNumber directly from Index.js 
+
+} 
 
 const mapDispatchToProps = (dispatch) => {
     return {

@@ -27,7 +27,7 @@ class TableForm extends Component {
           } else {
             this.setState({
               isDisabled: true,
-              error: "Fill All Fields!"
+              error: "Required Field!"
             })
           }
     }
@@ -67,7 +67,7 @@ class TableForm extends Component {
 
 const mapStateToProps = (state) => {
 
-} //Map State to props. Get GlobalNumber directly from Index.js 
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
