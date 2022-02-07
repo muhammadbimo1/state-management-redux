@@ -37,7 +37,7 @@ class TableList extends Component {
                                         <th scope="row">{item.id}</th>
                                         <th scope="row">{item.number}</th>
                                         <th style={item.status==='Available' ? {color:"blue"}:{color:"red"}} scope="row">{item.status}</th>
-                                        <button name={index} onClick={this.handleClickDelete}>DELETE</button>
+                                        <th className="btn btn-outline-danger" name={index} onClick={this.handleClickDelete}>DELETE</th>
                                     </tr>
                                 )
                                     ;

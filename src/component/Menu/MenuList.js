@@ -35,7 +35,7 @@ class MenuList extends Component {
                                         <th scope="row">{index+1}</th>
                                         <th scope="row">{item.name}</th>
                                         <th scope="row">{item.price}</th>
-                                        <button className="btn btn-primary" name={index} onClick={this.handleClickDelete}>DELETE</button>
+                                        <th className="btn btn-outline-danger" name={index} onClick={this.handleClickDelete}>DELETE</th>
                                     </tr>
                                 )
                                     ;

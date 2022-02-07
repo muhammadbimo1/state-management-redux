@@ -39,11 +39,6 @@ class CustomerForm extends Component {
                 isDisabled: false,
                 error: ""
             })
-        } else {
-            this.setState({
-                isDisabled: true,
-                errorEmail: "Invalid Email Format!"
-            })
         }
     }
 

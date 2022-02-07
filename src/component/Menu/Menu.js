@@ -7,10 +7,10 @@ class Menu extends Component {
 
     render() {
         return (
-            <>
+            <div>
                         <h1>Menu</h1>
             {this.props.formOpen? <MenuForm/> : <MenuList/>}
-            </>
+            </div>
         )
     }
 }

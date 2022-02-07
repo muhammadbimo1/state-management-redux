@@ -39,7 +39,7 @@ class CustomerList extends Component {
                                         <th scope="row">{item.name}</th>
                                         <th scope="row">{item.email}</th>
                                         <th scope="row">{item.address}</th>
-                                        <button name={index} onClick={this.handleClickDelete}>DELETE</button>
+                                        <th className="btn btn-outline-danger" name={index} onClick={this.handleClickDelete}>DELETE</th>
                                     </tr>
                                 )
                                     ;
