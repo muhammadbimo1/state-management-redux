@@ -9,6 +9,8 @@ class TableForm extends Component {
             newItem: {
 
             },
+            isDisabled:true,
+            Error:"Fill All Fields!"
         }
     }
     handleChange = (e) => {
@@ -19,6 +21,17 @@ class TableForm extends Component {
                 [e.target.name]: e.target.value
             },
         })
+        if (this.state.newItem.id&&this.state.newItem.number&&this.state.newItem.status) {
+            this.setState({
+              isDisabled: false,
+              error: ""
+            })
+          } else {
+            this.setState({
+              isDisabled: true,
+              error: "Fill All Fields!"
+            })
+          }
         console.log(this.state);
     }
 
@@ -44,9 +57,9 @@ class TableForm extends Component {
                             </select> <br/>
                         </div>
                     </form>
+                    <p style={{color:"red"}}>{this.state.error}</p>
                 </div>
-
-                <button onClick={this.handleClick}>Submit</button>
+                <button disabled={this.state.isDisabled} onClick={this.handleClick}>Submit</button>
             </>
         )
     }
