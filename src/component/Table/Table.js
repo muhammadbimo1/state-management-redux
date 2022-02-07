@@ -1,14 +1,14 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import MenuForm from "./MenuForm";
-import MenuList from "./MenuList";
+import TableForm from "./TableForm";
+import TableList from "./TableList";
 
-class Menu extends Component {
+class Table extends Component {
 
     render() {
         return (
             <>
-            {this.props.formOpen? <MenuForm/> : <MenuList/>}
+            {this.props.formOpen? <TableForm/> : <TableList/>}
             </>
         )
     }
@@ -19,6 +19,6 @@ const mapStateToProps = (state) => {
     return {
         formOpen:state.formOpen
     }
-} //Map State to props. Get GlobalNumber directly from Index.js 
+}
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps)(Table);
