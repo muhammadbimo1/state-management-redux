@@ -32,7 +32,6 @@ class TableForm extends Component {
               error: "Fill All Fields!"
             })
           }
-        console.log(this.state);
     }
 
     handleClick = (e) => {

@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import ActionType from "../../redux/GlobalActionType";
-import MenuList from "./MenuList";
 
 class MenuForm extends Component {
     constructor(props) {
@@ -10,6 +9,8 @@ class MenuForm extends Component {
             newItem: {
 
             },
+            isDisabled:true,
+            error:""
         }
     }
     handleChange = (e) => {
@@ -20,7 +21,17 @@ class MenuForm extends Component {
                 [e.target.name]: e.target.value
             },
         })
-        console.log(this.state);
+        if (this.state.newItem.name && this.state.newItem.price) {
+            this.setState({
+                isDisabled: false,
+                error: ""
+            })
+        } else {
+            this.setState({
+                isDisabled: true,
+                error: "Fill All Fields!"
+            })
+        }
     }
 
     handleClick = (e) => {
@@ -38,12 +49,12 @@ class MenuForm extends Component {
                     <form>
                         <div className="form-group">
                             <input type="text" name="name" id="name" placeholder="Name" onChange={this.handleChange} /> <br />
-                            <input type="text" name="price" id="price" placeholder="Price" onChange={this.handleChange} /> <br />
+                            <input type="number" name="price" id="price" placeholder="Price" onChange={this.handleChange} /> <br />
                         </div>
                     </form>
                 </div>
-
-                <button onClick={this.handleClick}>Submit</button>
+                <p style={{color:"red"}}>{this.state.error}</p>
+                <button disabled={this.state.isDisabled} onClick={this.handleClick}>Submit</button>
             </>
         )
     }
