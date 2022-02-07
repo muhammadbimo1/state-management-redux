@@ -8,6 +8,7 @@ class Menu extends Component {
     render() {
         return (
             <>
+                        <h1>Menu</h1>
             {this.props.formOpen? <MenuForm/> : <MenuList/>}
             </>
         )

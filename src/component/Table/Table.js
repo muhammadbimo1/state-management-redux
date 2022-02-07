@@ -8,6 +8,7 @@ class Table extends Component {
     render() {
         return (
             <>
+            <h1>Tables</h1>
             {this.props.formOpen? <TableForm/> : <TableList/>}
             </>
         )

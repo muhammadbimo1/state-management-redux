@@ -13,7 +13,7 @@ class CustomerList extends Component {
             return (
                 <>
                             <p>Sorry, the list is empty.</p>
-                            <button onClick={this.props.handleOpenForm}>ADD CUSTOMER</button>
+                            <button className="btn btn-primary" onClick={this.props.handleOpenForm}>ADD CUSTOMER</button>
                 </>
                 )
         }
@@ -47,7 +47,7 @@ class CustomerList extends Component {
                         </tbody>
                     </table>
                 </div>
-                <button onClick={this.props.handleOpenForm}>ADD CUSTOMER</button>
+                <button className="btn btn-primary" onClick={this.props.handleOpenForm}>ADD CUSTOMER</button>
             </>
         )
     }

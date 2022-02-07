@@ -7,7 +7,8 @@ class Customer extends Component {
     render() {
         return (
             <>
-            {this.props.formOpen? <CustomerForm/> : <CustomerList/>}
+                <h1>Customers</h1>
+                {this.props.formOpen ? <CustomerForm /> : <CustomerList />}
             </>
         )
     }
@@ -16,7 +17,7 @@ class Customer extends Component {
 const mapStateToProps = (state) => {
     console.log(state);
     return {
-        formOpen:state.formOpen
+        formOpen: state.formOpen
     }
 } //Map State to props. Get GlobalNumber directly from Index.js 
 

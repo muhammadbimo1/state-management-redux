@@ -13,7 +13,7 @@ class MenuList extends Component {
             return (
                 <>
                             <p>Sorry, the list is empty.</p>
-                            <button onClick={this.props.handleOpenForm}>ADD MENU</button>
+                            <button className="btn btn-primary" onClick={this.props.handleOpenForm}>ADD MENU</button>
                 </>
                 )
         }
@@ -35,7 +35,7 @@ class MenuList extends Component {
                                         <th scope="row">{index+1}</th>
                                         <th scope="row">{item.name}</th>
                                         <th scope="row">{item.price}</th>
-                                        <button name={index} onClick={this.handleClickDelete}>DELETE</button>
+                                        <button className="btn btn-primary" name={index} onClick={this.handleClickDelete}>DELETE</button>
                                     </tr>
                                 )
                                     ;

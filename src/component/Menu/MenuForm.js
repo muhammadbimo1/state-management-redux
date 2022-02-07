@@ -54,7 +54,10 @@ class MenuForm extends Component {
                     </form>
                 </div>
                 <p style={{color:"red"}}>{this.state.error}</p>
-                <button disabled={this.state.isDisabled} onClick={this.handleClick}>Submit</button>
+                <div className="m-3">
+            <button className="btn btn-primary" disabled={this.state.isDisabled} onClick={this.handleClick}>Submit</button> 
+                <button className="btn btn-danger m-3" onClick={this.props.handleCancel}>Cancel</button>
+            </div>
             </>
         )
     }
@@ -71,6 +74,9 @@ const mapDispatchToProps = (dispatch) => {
         handleAdd: (item) => {
             console.log(item);
             dispatch({ type: ActionType.ADD_MENU, payload: item })
+        },
+        handleCancel: () => {
+            dispatch({ type: ActionType.CLOSE_FORM})
         },
     }
 }

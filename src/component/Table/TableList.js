@@ -13,7 +13,7 @@ class TableList extends Component {
             return (
                 <>
                     <p>Sorry, the list is empty.</p>
-                    <button onClick={this.props.handleOpenForm}>ADD TABLE</button>
+                    <button className="btn btn-primary" onClick={this.props.handleOpenForm}>ADD TABLE</button>
                 </>
             )
         }
@@ -45,7 +45,7 @@ class TableList extends Component {
                         </tbody>
                     </table>
                 </div>
-                <button onClick={this.props.handleOpenForm}>ADD TABLE</button>
+                <button className="btn btn-primary" onClick={this.props.handleOpenForm}>ADD TABLE</button>
             </>
         )
     }

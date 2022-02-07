@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import ActionType from "../../redux/GlobalActionType";
+import validator from "validator";
 
 class CustomerForm extends Component {
     constructor(props) {
@@ -9,6 +10,9 @@ class CustomerForm extends Component {
             newItem: {
 
             },
+            isDisabled:true,
+            error:"",
+            errorEmail:""
         }
     }
     handleChange = (e) => {
@@ -19,7 +23,28 @@ class CustomerForm extends Component {
                 [e.target.name]: e.target.value
             },
         })
-        console.log(this.state);
+        if (this.state.newItem.id && this.state.newItem.name&&this.state.newItem.email&&this.state.newItem.address) {
+            this.setState({
+                isDisabled: false,
+                error: ""
+            })
+        } else {
+            this.setState({
+                isDisabled: true,
+                error: "Fill All Fields!"
+            })
+        }
+        if (validator.isEmail(this.state.newItem.email)) {
+            this.setState({
+                isDisabled: false,
+                error: ""
+            })
+        } else {
+            this.setState({
+                isDisabled: true,
+                errorEmail: "Invalid Email Format!"
+            })
+        }
     }
 
     handleClick = (e) => {
@@ -39,12 +64,16 @@ class CustomerForm extends Component {
                             <input type="text" name="id" id="id" placeholder="ID" onChange={this.handleChange} /> <br />
                             <input type="text" name="name" id="name" placeholder="Name" onChange={this.handleChange} /> <br />
                             <input type="text" name="email" id="email" placeholder="Email" onChange={this.handleChange} /> <br />
+                            <p style={{color:"red"}} >{this.state.errorEmail}</p>
                             <input type="text" name="address" id="address" placeholder="Address" onChange={this.handleChange} /> <br />
                         </div>
                     </form>
                 </div>
-
-                <button onClick={this.handleClick}>Submit</button>
+            <p style={{color:"red"}} >{this.state.error}</p>
+            <div className="m-3">
+            <button className="btn btn-primary" disabled={this.state.isDisabled} onClick={this.handleClick}>Submit</button> 
+                <button className="btn btn-danger m-3" onClick={this.props.handleCancel}>Cancel</button>
+            </div>
             </>
         )
     }
@@ -59,8 +88,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleAdd: (item) => {
-            console.log(item);
             dispatch({ type: ActionType.ADD_CUSTOMER, payload: item })
+        },
+        handleCancel: () => {
+            dispatch({type: ActionType.CLOSE_FORM})
         },
     }
 }
