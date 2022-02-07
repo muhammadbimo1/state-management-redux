@@ -2,14 +2,14 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import ActionType from "../../redux/GlobalActionType";
 
-class MenuList extends Component {
+class CustomerList extends Component {
 
     handleClickDelete = (e) => {
         this.props.handleDelete(e.target.name);
     }
 
     render() {
-        if (!this.props.menus.length) {
+        if (!this.props.customers.length) {
             return (
                 <>
                             <p>Sorry, the list is empty.</p>
@@ -24,17 +24,21 @@ class MenuList extends Component {
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">ID</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Price</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Address</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.menus.map((item, index) => {
+                            {this.props.customers.map((item, index) => {
                                 return (
                                     <tr key={index}>
                                         <th scope="row">{index+1}</th>
+                                        <th scope="row">{item.id}</th>
                                         <th scope="row">{item.name}</th>
-                                        <th scope="row">{item.price}</th>
+                                        <th scope="row">{item.email}</th>
+                                        <th scope="row">{item.address}</th>
                                         <button name={index} onClick={this.handleClickDelete}>DELETE</button>
                                     </tr>
                                 )
@@ -51,15 +55,15 @@ class MenuList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        menus: state.menus,
+        customers: state.customers
     }
 } //Map State to props. Get GlobalNumber directly from Index.js 
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleDelete: (index) => dispatch({ type: ActionType.DELETE_MENU, index: index }),
+        handleDelete: (index) => dispatch({ type: ActionType.DELETE_CUSTOMER, index: index }),
         handleOpenForm: ()=> dispatch({type:ActionType.OPEN_FORM})
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MenuList);
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerList);

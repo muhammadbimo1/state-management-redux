@@ -1,9 +1,8 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import ActionType from "../../redux/GlobalActionType";
-import MenuList from "./MenuList";
 
-class MenuForm extends Component {
+class CustomerForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -37,8 +36,10 @@ class MenuForm extends Component {
                 <div>
                     <form>
                         <div className="form-group">
+                            <input type="text" name="id" id="id" placeholder="ID" onChange={this.handleChange} /> <br />
                             <input type="text" name="name" id="name" placeholder="Name" onChange={this.handleChange} /> <br />
-                            <input type="text" name="price" id="price" placeholder="Price" onChange={this.handleChange} /> <br />
+                            <input type="text" name="email" id="email" placeholder="Email" onChange={this.handleChange} /> <br />
+                            <input type="text" name="address" id="address" placeholder="Address" onChange={this.handleChange} /> <br />
                         </div>
                     </form>
                 </div>
@@ -59,9 +60,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleAdd: (item) => {
             console.log(item);
-            dispatch({ type: ActionType.ADD_MENU, payload: item })
+            dispatch({ type: ActionType.ADD_CUSTOMER, payload: item })
         },
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MenuForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerForm);

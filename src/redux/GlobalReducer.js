@@ -29,32 +29,68 @@ const globalState = {
     }
 
     //TODO TABLE
+    if(action.type === ActionType.ADD_TABLE){
+      return {
+        ...state,
+        tables: [...state.tables,action.payload],
+        formOpen:false
+      }
+    }
+    if(action.type === ActionType.DELETE_TABLE){
+      let tables2 = state.tables;
 
-    //TODO CUSTOMERS
+      tables2.splice(action.index, 1);
+      return {
+        ...state,
+        tables: [...tables2]
+      }
+    }
+
+    //CUSTOMERS
+    if(action.type === ActionType.ADD_CUSTOMER){
+      return {
+        ...state,
+        customers: [...state.customers,action.payload],
+        formOpen:false
+      }
+    }
+    if(action.type === ActionType.DELETE_CUSTOMER){
+      let customers2 = state.customers;
+
+      customers2.splice(action.index, 1);
+      return {
+        ...state,
+        customers: [...customers2]
+      }
+    }
 
     //NAVBAR MOVEMENT
     if(action.type === ActionType.MOVE_HOME){
       return {
         ...state,
-        currentScreen: "home"
+        currentScreen: "home",
+        formOpen:false
       }
     }
     if(action.type === ActionType.MOVE_MENU){
       return {
         ...state,
-        currentScreen: "menu"
+        currentScreen: "menu",
+        formOpen:false
       }
     }
     if(action.type === ActionType.MOVE_TABLE){
       return {
         ...state,
-        currentScreen: "table"
+        currentScreen: "table",
+        formOpen:false
       }
     }
     if(action.type === ActionType.MOVE_CUSTOMER){
       return {
         ...state,
-        currentScreen: "customer"
+        currentScreen: "customer",
+        formOpen:false
       }
     }
     //Open and close Form
