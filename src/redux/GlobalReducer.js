@@ -4,7 +4,7 @@ const globalState = {
     menus : [],
     tables : [],
     customers : [],
-    isLoggedIn: true,
+    isLoggedIn: false,
     formOpen:false,
     currentScreen:"home"
   }
