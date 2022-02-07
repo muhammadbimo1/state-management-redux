@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import FirstCounter from './component/FirstCounter';
 import { connect } from "react-redux";
 import ActionType from "./redux/GlobalActionType";
 import LoginScreen from './component/Login';
+import Home from './component/Home';
 // Notice how we don't pass anything thru the app.js
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.isLoggedIn ? <FirstCounter /> : <LoginScreen/>}
+        {this.props.isLoggedIn ? <Home /> : <LoginScreen/>}
       </div>
     );
   }

@@ -1,28 +1,76 @@
 import ActionType from "./GlobalActionType"
 
 const globalState = { 
-    globalNumber : [],
-    isLoggedIn: false
+    menus : [],
+    tables : [],
+    customers : [],
+    isLoggedIn: true,
+    formOpen:false,
+    currentScreen:"home"
   }
   
   const rootReducer = (state = globalState, action) => {
-    console.log("PAYLOAD",action);
-    if(action.type === ActionType.PLUS){
+    //MENU
+    if(action.type === ActionType.ADD_MENU){
       return {
         ...state,
-        globalNumber: [...state.globalNumber,action.payload]
+        menus: [...state.menus,action.payload],
+        formOpen:false
       }
     }
-    if(action.type === ActionType.MINUS){
-      let globalNumber2 = state.globalNumber;
+    if(action.type === ActionType.DELETE_MENU){
+      let menus2 = state.menus;
 
-      globalNumber2.splice(action.index, 1);
-      console.log("updated",globalNumber2);
+      menus2.splice(action.index, 1);
       return {
         ...state,
-        globalNumber: [...globalNumber2]
+        menus: [...menus2]
       }
     }
+
+    //TODO TABLE
+
+    //TODO CUSTOMERS
+
+    //NAVBAR MOVEMENT
+    if(action.type === ActionType.MOVE_HOME){
+      return {
+        ...state,
+        currentScreen: "home"
+      }
+    }
+    if(action.type === ActionType.MOVE_MENU){
+      return {
+        ...state,
+        currentScreen: "menu"
+      }
+    }
+    if(action.type === ActionType.MOVE_TABLE){
+      return {
+        ...state,
+        currentScreen: "table"
+      }
+    }
+    if(action.type === ActionType.MOVE_CUSTOMER){
+      return {
+        ...state,
+        currentScreen: "customer"
+      }
+    }
+    //Open and close Form
+    if(action.type === ActionType.OPEN_FORM){
+      return {
+        ...state,
+        formOpen: true
+      }
+    }
+    if(action.type === ActionType.CLOSE_FORM){
+      return {
+        ...state,
+        formOpen: false
+      }
+    }
+    //LOGIN,LOGOUT
     if(action.type === ActionType.LOGIN){
       return {
         ...state,
