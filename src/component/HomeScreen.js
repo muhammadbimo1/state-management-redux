@@ -5,7 +5,7 @@ class HomeScreen extends Component {
     render() {
         return (
             <div>
-                    HomeScreen
+                    Have a Nice Day!
             </div>
         );
     }

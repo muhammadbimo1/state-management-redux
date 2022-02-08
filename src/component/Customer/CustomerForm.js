@@ -37,7 +37,12 @@ class CustomerForm extends Component {
         if (validator.isEmail(this.state.newItem.email)) {
             this.setState({
                 isDisabled: false,
-                error: ""
+                errorEmail: ""
+            })
+        } else {
+            this.setState({
+                isDisabled: true,
+                errorEmail: "Invalid email format!"
             })
         }
     }

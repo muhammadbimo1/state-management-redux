@@ -5,7 +5,10 @@ import ActionType from "../../redux/GlobalActionType";
 class TableList extends Component {
 
     handleClickDelete = (e) => {
-        this.props.handleDelete(e.target.name);
+        window.confirm('Are you sure you wish to delete this item?') ?  this.props.handleDelete(e.target.name) : this.handleCancel();
+    }
+    handleCancel = (e) => {
+       
     }
 
     render() {
@@ -37,7 +40,7 @@ class TableList extends Component {
                                         <th scope="row">{item.id}</th>
                                         <th scope="row">{item.number}</th>
                                         <th style={item.status==='Available' ? {color:"blue"}:{color:"red"}} scope="row">{item.status}</th>
-                                        <th className="btn btn-outline-danger" name={index} onClick={this.handleClickDelete}>DELETE</th>
+                                        <th className="btn btn-outline-danger"  name={index} onClick={this.handleClickDelete}>DELETE</th>
                                     </tr>
                                 )
                                     ;

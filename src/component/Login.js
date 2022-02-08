@@ -37,6 +37,17 @@ class LoginScreen extends Component {
         errorEmail: "invalid email Format"
       })
     }
+    if (this.state.password.length>6) {
+      this.setState({
+        isDisabled: false,
+        errorPassword: ""
+      })
+    } else {
+      this.setState({
+        isDisabled: true,
+        errorPassword: "6 min length Character"
+      })
+    }
     console.log(this.state);
   }
 

@@ -21,17 +21,17 @@ class Home extends Component {
         }
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light p-3">
                     <button className="navbar-brand" onClick={this.props.HandleHome}>Bakari</button>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <button className="nav-item nav-link" onClick={this.props.HandleTable}>Tables</button>
-                            <button className="nav-item nav-link" onClick={this.props.HandleMenu}>Menus</button>
-                            <button className="nav-item nav-link" onClick={this.props.HandleCustomer}>Customers</button>
-                            <button className="bton btn-danger" onClick={this.props.HandleLogout}>Logout</button>
+                            <button className="btn btn-link" onClick={this.props.HandleTable}>Tables</button>
+                            <button className="btn btn-link" onClick={this.props.HandleMenu}>Menus</button>
+                            <button className="btn btn-link" onClick={this.props.HandleCustomer}>Customers</button>
+                            <button className="btn btn-danger" onClick={this.props.HandleLogout}>Logout</button>
                         </div>
                     </div>
                 </nav>

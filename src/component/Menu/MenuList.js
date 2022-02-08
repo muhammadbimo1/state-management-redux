@@ -5,7 +5,10 @@ import ActionType from "../../redux/GlobalActionType";
 class MenuList extends Component {
 
     handleClickDelete = (e) => {
-        this.props.handleDelete(e.target.name);
+        window.confirm('Are you sure you wish to delete this item?') ?  this.props.handleDelete(e.target.name) : this.handleCancel();
+    }
+    handleCancel = (e) => {
+       
     }
 
     render() {
